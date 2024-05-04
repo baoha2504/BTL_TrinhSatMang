@@ -1,0 +1,3105 @@
+<!DOCTYPE html>
+<!--
+* CoreUI - Free Bootstrap Admin Template
+* @version v5.0.0
+* @link https://coreui.io/product/free-bootstrap-admin-template/
+* Copyright (c) 2024 creativeLabs Łukasz Holeczek
+* Licensed under MIT (https://github.com/coreui/coreui-free-bootstrap-admin-template/blob/main/LICENSE)
+-->
+
+<html lang="en">
+
+<head>
+    <base href="./">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
+    <meta name="author" content="Łukasz Holeczek">
+    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
+    <title>Hệ Thống Trinh Sát Tin Tức</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Vendors styles-->
+    <link rel="stylesheet" href="node_modules/simplebar/dist/simplebar.css">
+    <link rel="stylesheet" href="css/vendors/simplebar.css">
+    <!-- Main styles for this application-->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- We use those styles to show code examples, you should remove them in your application.-->
+    <link href="css/examples.css" rel="stylesheet">
+    <!-- We use those styles to style Carbon ads and CoreUI PRO banner, you should remove them in your application.-->
+    <link href="css/ads.css" rel="stylesheet">
+    <script src="js/config.js"></script>
+    <script src="js/color-modes.js"></script>
+    <link href="node_modules/@coreui/chartjs/dist/css/coreui-chartjs.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="sidebar sidebar-dark sidebar-fixed border-end" id="sidebar">
+        <div class="sidebar-header border-bottom">
+            <div class="sidebar-brand">
+                <svg class="sidebar-brand-full" width="88" height="32" alt="CoreUI Logo">
+            <use xlink:href="assets/brand/coreui.svg#full"></use>
+          </svg>
+                <svg class="sidebar-brand-narrow" width="32" height="32" alt="CoreUI Logo">
+            <use xlink:href="assets/brand/coreui.svg#signet"></use>
+          </svg>
+            </div>
+            <button class="btn-close d-lg-none" type="button" data-coreui-dismiss="offcanvas" data-coreui-theme="dark" aria-label="Close" onclick="coreui.Sidebar.getInstance(document.querySelector(&quot;#sidebar&quot;)).toggle()"></button>
+        </div>
+        <ul class="sidebar-nav" data-coreui="navigation" data-simplebar>
+            <li class="nav-title">Dashboard</li>
+            <li class="nav-item">
+                <a class="nav-link" href="index1.html">
+                    <svg class="nav-icon">
+              <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-speedometer"></use>
+            </svg> Đối tượng</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index-event.html">
+                    <svg class="nav-icon">
+              <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-speedometer"></use>
+            </svg> Sự kiện</a>
+            </li>
+            <li class="nav-title">Quản lý</li>
+            <li class="nav-item">
+                <a class="nav-link" href="object.html">
+                    <svg class="nav-icon">
+              <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-drop"></use>
+            </svg> Đối tượng</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="event.html">
+                    <svg class="nav-icon">
+              <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-pencil"></use>
+            </svg> Sự kiện</a>
+            </li>
+        </ul>
+        <div class="sidebar-footer border-top d-none d-md-flex">
+            <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
+        </div>
+    </div>
+    <div class="wrapper d-flex flex-column min-vh-100">
+        <header class="header header-sticky p-0 mb-4">
+            <div class="container-fluid border-bottom px-4">
+                <button class="header-toggler" type="button" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()" style="margin-inline-start: -14px;">
+            <svg class="icon icon-lg">
+              <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-menu"></use>
+            </svg>
+          </button>
+                <ul class="header-nav d-none d-lg-flex">
+                    <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Users</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
+                </ul>
+                <ul class="header-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <svg class="icon icon-lg">
+                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-bell"></use>
+                </svg></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <svg class="icon icon-lg">
+                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-list-rich"></use>
+                </svg></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <svg class="icon icon-lg">
+                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-envelope-open"></use>
+                </svg></a>
+                    </li>
+                </ul>
+                <ul class="header-nav">
+                    <li class="nav-item py-1">
+                        <div class="vr h-100 mx-2 text-body text-opacity-75"></div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <button class="btn btn-link nav-link py-2 px-2 d-flex align-items-center" type="button" aria-expanded="false" data-coreui-toggle="dropdown">
+                <svg class="icon icon-lg theme-icon-active">
+                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-contrast"></use>
+                </svg>
+              </button>
+                        <ul class="dropdown-menu dropdown-menu-end" style="--cui-dropdown-min-width: 8rem;">
+                            <li>
+                                <button class="dropdown-item d-flex align-items-center" type="button" data-coreui-theme-value="light">
+                    <svg class="icon icon-lg me-3">
+                      <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-sun"></use>
+                    </svg>Light
+                  </button>
+                            </li>
+                            <li>
+                                <button class="dropdown-item d-flex align-items-center" type="button" data-coreui-theme-value="dark">
+                    <svg class="icon icon-lg me-3">
+                      <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-moon"></use>
+                    </svg>Dark
+                  </button>
+                            </li>
+                            <li>
+                                <button class="dropdown-item d-flex align-items-center active" type="button" data-coreui-theme-value="auto">
+                    <svg class="icon icon-lg me-3">
+                      <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-contrast"></use>
+                    </svg>Auto
+                  </button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item py-1">
+                        <div class="vr h-100 mx-2 text-body text-opacity-75"></div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link py-0 pe-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/8.jpg" alt="user@email.com"></div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end pt-0">
+                            <div class="dropdown-header bg-body-tertiary text-body-secondary fw-semibold rounded-top mb-2">Account</div>
+                            <a class="dropdown-item" href="#">
+                                <svg class="icon me-2">
+                    <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-bell"></use>
+                  </svg> Updates<span class="badge badge-sm bg-info ms-2">42</span></a>
+                            <a class="dropdown-item" href="#">
+                                <svg class="icon me-2">
+                    <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-envelope-open"></use>
+                  </svg> Messages<span class="badge badge-sm bg-success ms-2">42</span></a>
+                            <a class="dropdown-item" href="#">
+                                <svg class="icon me-2">
+                    <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-task"></use>
+                  </svg> Tasks<span class="badge badge-sm bg-danger ms-2">42</span></a>
+                            <a class="dropdown-item" href="#">
+                                <svg class="icon me-2">
+                    <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-comment-square"></use>
+                  </svg> Comments<span class="badge badge-sm bg-warning ms-2">42</span></a>
+                            <div class="dropdown-header bg-body-tertiary text-body-secondary fw-semibold my-2">
+                                <div class="fw-semibold">Settings</div>
+                            </div>
+                            <a class="dropdown-item" href="#">
+                                <svg class="icon me-2">
+                    <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-user"></use>
+                  </svg> Profile</a>
+                            <a class="dropdown-item" href="#">
+                                <svg class="icon me-2">
+                    <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-settings"></use>
+                  </svg> Settings</a>
+                            <a class="dropdown-item" href="#">
+                                <svg class="icon me-2">
+                    <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-credit-card"></use>
+                  </svg> Payments<span class="badge badge-sm bg-secondary ms-2">42</span></a>
+                            <a class="dropdown-item" href="#">
+                                <svg class="icon me-2">
+                    <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-file"></use>
+                  </svg> Projects<span class="badge badge-sm bg-primary ms-2">42</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">
+                                <svg class="icon me-2">
+                    <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-lock-locked"></use>
+                  </svg> Lock Account</a>
+                            <a class="dropdown-item" href="#">
+                                <svg class="icon me-2">
+                    <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-account-logout"></use>
+                  </svg> Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="container-fluid px-4">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb my-0">
+                        <li class="breadcrumb-item"><a href="#">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active"><span>Dashboard</span>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+        <div class="body flex-grow-1">
+            <div class="container-lg px-4">
+                <div class="row mb-4">
+                    <div class="col-xl-5 col-xxl-4 mb-4 mb-xl-0">
+                        <script id="_carbonads_js" async="" type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEAICKJY&amp;placement=coreuiio"></script>
+                    </div>
+                </div>
+                <div class="row g-4 mb-4">
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="card text-white bg-primary">
+                            <div class="card-body pb-0 d-flex justify-content-between align-items-start">
+                                <div>
+                                    <div class="fs-4 fw-semibold">Việt Tân <span class="fs-6 fw-normal">(-12.4%
+                        <svg class="icon">
+                          <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-arrow-bottom"></use>
+                        </svg>)</span></div>
+                                    <div>Đảng Việt Tân</div>
+                                </div>
+                                <div class="dropdown">
+                                    <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <svg class="icon">
+                        <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-options"></use>
+                      </svg>
+                    </button>
+                                    <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a></div>
+                                </div>
+                            </div>
+                            <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
+                                <canvas class="chart" id="card-chart1" height="70"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col-->
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="card text-white bg-info">
+                            <div class="card-body pb-0 d-flex justify-content-between align-items-start">
+                                <div>
+                                    <div class="fs-4 fw-semibold">VOA<span class="fs-6 fw-normal">(40.9%
+                        <svg class="icon">
+                          <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-arrow-top"></use>
+                        </svg>)</span></div>
+                                    <div>VOA Tiếng Việt</div>
+                                </div>
+                                <div class="dropdown">
+                                    <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <svg class="icon">
+                        <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-options"></use>
+                      </svg>
+                    </button>
+                                    <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a></div>
+                                </div>
+                            </div>
+                            <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
+                                <canvas class="chart" id="card-chart2" height="70"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col-->
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="card text-white bg-warning">
+                            <div class="card-body pb-0 d-flex justify-content-between align-items-start">
+                                <div>
+                                    <div class="fs-4 fw-semibold">BBCnews<span class="fs-6 fw-normal">(84.7%
+                        <svg class="icon">
+                          <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-arrow-top"></use>
+                        </svg>)</span></div>
+                                    <div>BBC News Tiếng Việt</div>
+                                </div>
+                                <div class="dropdown">
+                                    <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <svg class="icon">
+                        <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-options"></use>
+                      </svg>
+                    </button>
+                                    <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a></div>
+                                </div>
+                            </div>
+                            <div class="c-chart-wrapper mt-3" style="height:70px;">
+                                <canvas class="chart" id="card-chart3" height="70"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col-->
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="card text-white bg-danger">
+                            <div class="card-body pb-0 d-flex justify-content-between align-items-start">
+                                <div>
+                                    <div class="fs-4 fw-semibold">RFA<span class="fs-6 fw-normal">(-23.6%
+                        <svg class="icon">
+                          <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-arrow-bottom"></use>
+                        </svg>)</span></div>
+                                    <div>Đài Á Châu Tự Do</div>
+                                </div>
+                                <div class="dropdown">
+                                    <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <svg class="icon">
+                        <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-options"></use>
+                      </svg>
+                    </button>
+                                    <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a></div>
+                                </div>
+                            </div>
+                            <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
+                                <canvas class="chart" id="card-chart4" height="70"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col-->
+                </div>
+                <!-- /.row-->
+                <div class="card mb-4">
+                    <div class="card-header"><strong>Chọn Đối Tượng</strong></div>
+                    <div class="card-body">
+                        <div class="example">
+                            <div class="tab-content rounded-bottom">
+                                <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1009">
+                                    <div class="input-group">
+                                        <select class="form-select" id="inputGroupSelect03" onchange="handleOptionChange()" aria-label="Example select with button addon">
+                                <option selected>Lựa chọn đối tượng...</option>
+                                <option value="1">Việt Tân</option>
+                                <option value="2">VOA Tiếng Việt</option>
+                                <option value="3">RFA Tiếng Việt</option>
+                                <option value="4">BBC Tiếng Việt</option>
+                                <option value="5">Vịt Vui Vẻ</option>
+                                <option value="6">Dân Trí</option>
+                                <option value="7">VnExpress</option>
+                                <option value="8">Ngẫm Sử Thi</option>
+                              </select>
+                                        <button class="btn btn-outline-success" type="button">Tìm kiếm</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h5 class="card-title mb-0">Biểu Đồ Phân Tích Cảm Xúc</h5>
+                                <div class="small text-body-secondary">23 - 04 - 2024</div>
+                            </div>
+                            <div class="btn-toolbar d-none d-md-block" role="toolbar" aria-label="Toolbar with buttons">
+                                <div class="btn-group btn-group-toggle mx-3" data-coreui-toggle="buttons">
+                                    <input class="btn-check" id="option1" type="radio" name="options" autocomplete="off">
+                                    <label class="btn btn-outline-secondary"> Ngày</label>
+                                    <input class="btn-check" id="option2" type="radio" name="options" autocomplete="off" checked="">
+                                    <label class="btn btn-outline-secondary active"> Tháng</label>
+                                    <input class="btn-check" id="option3" type="radio" name="options" autocomplete="off">
+                                    <label class="btn btn-outline-secondary"> Năm</label>
+                                </div>
+                                <button class="btn btn-primary" type="button">
+                    <svg class="icon">
+                      <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-cloud-download"></use>
+                    </svg>
+                  </button>
+                            </div>
+                        </div>
+                        <div class="c-chart-wrapper" style="height:300px;margin-top:40px;">
+                            <canvas class="chart" id="main-chart" height="300"></canvas>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-5 g-4 mb-2 text-center">
+                            <div class="col">
+                                <div class="text-body-secondary">Số bài báo</div>
+                                <div class="fw-semibold text-truncate">2034 Users ( ↑0.5%)</div>
+                                <div class="progress progress-thin mt-2">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="text-body-secondary">Số video Youtube</div>
+                                <div class="fw-semibold text-truncate">240 video ( ↑2%)</div>
+                                <div class="progress progress-thin mt-2">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="text-body-secondary">Số bài đăng Facebook</div>
+                                <div class="fw-semibold text-truncate">752 video ( ↑1%)</div>
+                                <div class="progress progress-thin mt-2">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="text-body-secondary">Tin tích cực</div>
+                                <div class="fw-semibold text-truncate">59.85%</div>
+                                <div class="progress progress-thin mt-2">
+                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="col d-none d-xl-block">
+                                <div class="text-body-secondary">Tin tiêu cực</div>
+                                <div class="fw-semibold text-truncate">40.15%</div>
+                                <div class="progress progress-thin mt-2">
+                                    <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-->
+                <div class="row g-4 mb-4">
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card" style="--cui-card-cap-bg: red">
+                            <div class="card-header position-relative d-flex justify-content-center align-items-center">
+                                <svg class="icon icon-3xl text-white my-4">
+                    <use xlink:href="node_modules/@coreui/icons/sprites/brand.svg#cib-youtube"></use>
+                  </svg>
+                                <div class="chart-wrapper position-absolute top-0 start-0 w-100 h-100">
+                                    <canvas id="social-box-chart-1" height="90"></canvas>
+                                </div>
+                            </div>
+                            <div class="card-body row text-center" id="infoChannelYoutube">
+                                <h5>Việt Tân</h5>
+                                <div class="col">
+                                    <div class="fs-5 fw-semibold">89k</div>
+                                    <div class="text-uppercase text-body-secondary small">subscribe</div>
+                                </div>
+                                <div class="vr"></div>
+                                <div class="col">
+                                    <div class="fs-5 fw-semibold">459</div>
+                                    <div class="text-uppercase text-body-secondary small">video</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col-->
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card" style="--cui-card-cap-bg: #4875b4">
+                            <div class="card-header position-relative d-flex justify-content-center align-items-center">
+                                <svg class="icon icon-3xl text-white my-4">
+                    <use xlink:href="node_modules/@coreui/icons/sprites/brand.svg#cib-facebook-f"></use>
+                  </svg>
+                                <div class="chart-wrapper position-absolute top-0 start-0 w-100 h-100">
+                                    <canvas id="social-box-chart-2" height="90"></canvas>
+                                </div>
+                            </div>
+                            <div class="card-body row text-center" id="infoPageFacebook">
+                                <h5>Việt Tân</h5>
+                                <div class="col">
+                                    <div class="fs-5 fw-semibold">973k</div>
+                                    <div class="text-uppercase text-body-secondary small">FOLLOWERS</div>
+                                </div>
+                                <div class="vr"></div>
+                                <div class="col">
+                                    <div class="fs-5 fw-semibold">1.792</div>
+                                    <div class="text-uppercase text-body-secondary small">post</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col-->
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card" style="--cui-card-cap-bg: #1b9e3e">
+                            <div class="card-header position-relative d-flex justify-content-center align-items-center">
+                                <svg class="icon icon-3xl text-white my-4">
+                    <use xlink:href="node_modules/@coreui/icons/sprites/brand.svg#cib-storybook"></use>
+                  </svg>
+                                <div class="chart-wrapper position-absolute top-0 start-0 w-100 h-100">
+                                    <canvas id="social-box-chart-3" height="90"></canvas>
+                                </div>
+                            </div>
+                            <div class="card-body row text-center">
+                                <h5>Trang Báo</h5>
+                                <div class="col">
+                                    <div class="fs-5 fw-semibold">50.267</div>
+                                    <div class="text-uppercase text-body-secondary small">request</div>
+                                </div>
+                                <div class="vr"></div>
+                                <div class="col">
+                                    <div class="fs-5 fw-semibold">2.305</div>
+                                    <div class="text-uppercase text-body-secondary small">news</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col-->
+                </div>
+                <!-- /.row-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-4">
+                            <div class="card-header"><strong>Bài Báo</strong></div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="border-start border-start-4 border-start-info px-3 mb-3">
+                                                    <div class="small text-body-secondary text-truncate">Bài Viết Tích Cực</div>
+                                                    <div class="fs-5 fw-semibold">9</div>
+                                                </div>
+                                            </div>
+                                            <!-- /.col-->
+                                            <div class="col-6">
+                                                <div class="border-start border-start-4 border-start-danger px-3 mb-3">
+                                                    <div class="small text-body-secondary text-truncate">Bài Viết Tiêu Cực</div>
+                                                    <div class="fs-5 fw-semibold">22</div>
+                                                </div>
+                                            </div>
+                                            <!-- /.col-->
+                                        </div>
+                                        <!-- /.row-->
+                                    </div>
+                                    <!-- /.col-->
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="border-start border-start-4 border-start-success px-3 mb-3">
+                                                    <div class="small text-body-secondary text-truncate">Bài Viết Mới</div>
+                                                    <div class="fs-5 fw-semibold">78</div>
+                                                </div>
+                                            </div>
+                                            <!-- /.col-->
+                                            <div class="col-6">
+                                                <div class="border-start border-start-4 border-start-warning px-3 mb-3">
+                                                    <div class="small text-body-secondary text-truncate">Tổng</div>
+                                                    <div class="fs-5 fw-semibold">109</div>
+                                                </div>
+                                            </div>
+                                            <!-- /.col-->
+                                        </div>
+                                        <!-- /.row-->
+                                        <!-- /.col-->
+                                    </div>
+                                    <!-- /.row--><br>
+                                    <div class="table-responsive">
+                                        <table class="table border mb-0">
+                                            <thead class="fw-semibold text-nowrap">
+                                                <tr class="align-middle">
+                                                    <th class="bg-body-secondary">Ảnh</th>
+                                                    <th class="bg-body-secondary">Nội Dung</th>
+                                                    <th class="bg-body-secondary text-center">Cảm Xúc</th>
+                                                    <th class="bg-body-secondary text-center">Truy Cập</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tableWeb">
+                                                <tr class="align-middle">
+                                                    <td>
+                                                        <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="data:image/jpeg;base64,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"
+                                                                alt="user@email.com"></div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-nowrap">Phó Chủ nhiệm Văn phòng Quốc hội Phạm Thái Hà bị bắt</div>
+                                                        <div class="small text-body-secondary text-nowrap">23/04/2024</div>
+                                                    </td>
+                                                    <td class="text-center"><span class="badge me-1 bg-success">Tích cực</span></td>
+                                                    <td class="text-center"><button class="btn btn-primary" type="button">Chi tiết</button></td>
+                                                </tr>
+                                                <tr class="align-middle">
+                                                    <td>
+                                                        <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="data:image/png;base64,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"
+                                                                alt="user@email.com"></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-nowrap">Khởi tố, bắt tạm giam ông Phạm Thái Hà, Phó Chủ nhiệm Văn phòng Quốc hội</div>
+                                                        <div class="small text-body-secondary text-nowrap">23/04/2024</div>
+                                                    </td>
+                                                    <td class="text-center"><span class="badge me-1 bg-danger">Tiêu cực</span></td>
+                                                    <td class="text-center"><a href="http://localhost:3000/index1.html"><button class="btn btn-primary" type="button">Chi tiết</button></a></td>
+                                                </tr>
+                                                <tr class="align-middle">
+                                                    <td>
+                                                        <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="data:image/jpeg;base64,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"
+                                                                alt="user@email.com"></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-nowrap">Xét xử vụ khủng bố tại Đắk Lắk: Tòa tuyên phạt 10 án chung thân</div>
+                                                        <div class="small text-body-secondary text-nowrap">23/04/2024</div>
+                                                    </td>
+                                                    <td class="text-center"><span class="badge me-1 bg-info">Trung lập</span></td>
+                                                    <td class="text-center"><button class="btn btn-primary" type="button">Chi tiết</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.chủ đề chính-->
+                                    <div class="row g-4" id="topwordWeb">
+                                        <div class="col-6 col-sm-4 col-xl-2">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="text-body-secondary small text-uppercase fw-semibold">#Title</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.col-->
+                                        <div class="col-6 col-sm-4 col-xl-2">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="text-body-secondary small text-uppercase fw-semibold">#Title</div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.col-->
+                                        <div class="col-6 col-sm-4 col-xl-2">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="text-body-secondary small text-uppercase fw-semibold">#Title</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.col-->
+                                        <div class="col-6 col-sm-4 col-xl-2">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="text-body-secondary small text-uppercase fw-semibold">#Title</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.col-->
+                                        <div class="col-6 col-sm-4 col-xl-2">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="text-body-secondary small text-uppercase fw-semibold">#Title</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.col-->
+                                        <div class="col-6 col-sm-4 col-xl-2">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="text-body-secondary small text-uppercase fw-semibold">#Title</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.col-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.col-->
+
+                    </div>
+                    <!-- /.row-->
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-4">
+                            <div class="card-header"><strong>Video Youtube</strong></div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="border-start border-start-4 border-start-info px-3 mb-3">
+                                                    <div class="small text-body-secondary text-truncate">Video Tích Cực</div>
+                                                    <div class="fs-5 fw-semibold">9</div>
+                                                </div>
+                                            </div>
+                                            <!-- /.col-->
+                                            <div class="col-6">
+                                                <div class="border-start border-start-4 border-start-danger px-3 mb-3">
+                                                    <div class="small text-body-secondary text-truncate">Video Tiêu Cực</div>
+                                                    <div class="fs-5 fw-semibold">22</div>
+                                                </div>
+                                            </div>
+                                            <!-- /.col-->
+                                        </div>
+                                        <!-- /.row-->
+                                    </div>
+                                    <!-- /.col-->
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="border-start border-start-4 border-start-success px-3 mb-3">
+                                                    <div class="small text-body-secondary text-truncate">Video Mới</div>
+                                                    <div class="fs-5 fw-semibold">78</div>
+                                                </div>
+                                            </div>
+                                            <!-- /.col-->
+                                            <div class="col-6">
+                                                <div class="border-start border-start-4 border-start-warning px-3 mb-3">
+                                                    <div class="small text-body-secondary text-truncate">Tổng</div>
+                                                    <div class="fs-5 fw-semibold">109</div>
+                                                </div>
+                                            </div>
+                                            <!-- /.col-->
+                                        </div>
+                                        <!-- /.row-->
+                                        <!-- /.col-->
+                                    </div>
+                                    <!-- /.row--><br>
+                                    <div class="table-responsive">
+                                        <table class="table border mb-0">
+                                            <thead class="fw-semibold text-nowrap">
+                                                <tr class="align-middle">
+                                                    <th class="bg-body-secondary">Ảnh</th>
+                                                    <th class="bg-body-secondary">Nội Dung</th>
+                                                    <th class="bg-body-secondary text-center">Cảm Xúc</th>
+                                                    <th class="bg-body-secondary text-center">Truy Cập</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tableYoutube">
+                                                <tr class="align-middle">
+                                                    <td>
+                                                        <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/youtube.png" alt="user@email.com"></div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-nowrap">Phó Chủ nhiệm Văn phòng Quốc hội Phạm Thái Hà bị bắt</div>
+                                                        <div class="small text-body-secondary text-nowrap">23/04/2024</div>
+                                                    </td>
+                                                    <td class="text-center"><span class="badge me-1 bg-success">Tích cực</span></td>
+                                                    <td class="text-center"><button class="btn btn-primary" type="button">Chi tiết</button></td>
+                                                </tr>
+                                                <tr class="align-middle">
+                                                    <td>
+                                                        <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/youtube.png" alt="user@email.com"></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-nowrap">Khởi tố, bắt tạm giam ông Phạm Thái Hà, Phó Chủ nhiệm Văn phòng Quốc hội</div>
+                                                        <div class="small text-body-secondary text-nowrap">23/04/2024</div>
+                                                    </td>
+                                                    <td class="text-center"><span class="badge me-1 bg-danger">Tiêu cực</span></td>
+                                                    <td class="text-center"><button class="btn btn-primary" type="button">Chi tiết</button></td>
+                                                </tr>
+                                                <tr class="align-middle">
+                                                    <td>
+                                                        <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/youtube.png" alt="user@email.com"></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-nowrap">Xét xử vụ khủng bố tại Đắk Lắk: Tòa tuyên phạt 10 án chung thân</div>
+                                                        <div class="small text-body-secondary text-nowrap">23/04/2024</div>
+                                                    </td>
+                                                    <td class="text-center"><span class="badge me-1 bg-info">Trung lập</span></td>
+                                                    <td class="text-center"><button class="btn btn-primary" type="button">Chi tiết</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.chủ đề chính-->
+                                    <div class="row g-4" id="topwordYoutube">
+                                        <div class="col-6 col-sm-4 col-xl-2">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="text-body-secondary small text-uppercase fw-semibold">#Title</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.col-->
+                                        <div class="col-6 col-sm-4 col-xl-2">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="text-body-secondary small text-uppercase fw-semibold">#Title</div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.col-->
+                                        <div class="col-6 col-sm-4 col-xl-2">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="text-body-secondary small text-uppercase fw-semibold">#Title</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.col-->
+                                        <div class="col-6 col-sm-4 col-xl-2">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="text-body-secondary small text-uppercase fw-semibold">#Title</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.col-->
+                                        <div class="col-6 col-sm-4 col-xl-2">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="text-body-secondary small text-uppercase fw-semibold">#Title</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.col-->
+                                        <div class="col-6 col-sm-4 col-xl-2">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="text-body-secondary small text-uppercase fw-semibold">#Title</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.col-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.col-->
+                    </div>
+                    <!-- /.row-->
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-4">
+                            <div class="card-header"><strong>Bài Đăng Facebook</strong></div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="border-start border-start-4 border-start-info px-3 mb-3">
+                                                    <div class="small text-body-secondary text-truncate">Bài Đăng Tích Cực</div>
+                                                    <div class="fs-5 fw-semibold">9</div>
+                                                </div>
+                                            </div>
+                                            <!-- /.col-->
+                                            <div class="col-6">
+                                                <div class="border-start border-start-4 border-start-info px-3 mb-3">
+                                                    <div class="small text-body-secondary text-truncate">Bài Đăng Tiêu Cực</div>
+                                                    <div class="fs-5 fw-semibold">22</div>
+                                                </div>
+                                            </div>
+                                            <!-- /.col-->
+                                        </div>
+                                        <!-- /.row-->
+                                    </div>
+                                    <!-- /.col-->
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="border-start border-start-4 border-start-success px-3 mb-3">
+                                                    <div class="small text-body-secondary text-truncate">Bài Đăng Mới</div>
+                                                    <div class="fs-5 fw-semibold">78</div>
+                                                </div>
+                                            </div>
+                                            <!-- /.col-->
+                                            <div class="col-6">
+                                                <div class="border-start border-start-4 border-start-warning px-3 mb-3">
+                                                    <div class="small text-body-secondary text-truncate">Tổng</div>
+                                                    <div class="fs-5 fw-semibold">109</div>
+                                                </div>
+                                            </div>
+                                            <!-- /.col-->
+                                        </div>
+                                        <!-- /.row-->
+                                        <!-- /.col-->
+                                    </div>
+                                    <!-- /.row--><br>
+                                    <div class="table-responsive">
+                                        <table class="table border mb-0">
+                                            <thead class="fw-semibold text-nowrap">
+                                                <tr class="align-middle">
+                                                    <th class="bg-body-secondary">Ảnh</th>
+                                                    <th class="bg-body-secondary">Nội Dung</th>
+                                                    <th class="bg-body-secondary text-center">Cảm Xúc</th>
+                                                    <th class="bg-body-secondary text-center">Truy Cập</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tableFacebook">
+                                                <tr class="align-middle">
+                                                    <td>
+                                                        <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/facebook.png" alt="user@email.com"></div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-nowrap">Phó Chủ nhiệm Văn phòng Quốc hội Phạm Thái Hà bị bắt</div>
+                                                        <div class="small text-body-secondary text-nowrap">23/04/2024</div>
+                                                    </td>
+                                                    <td class="text-center"><span class="badge me-1 bg-success">Tích cực</span></td>
+                                                    <td class="text-center"><button class="btn btn-primary" type="button">Chi tiết</button></td>
+                                                </tr>
+                                                <tr class="align-middle">
+                                                    <td>
+                                                        <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/facebook.png" alt="user@email.com"></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-nowrap">Khởi tố, bắt tạm giam ông Phạm Thái Hà, Phó Chủ nhiệm Văn phòng Quốc hội</div>
+                                                        <div class="small text-body-secondary text-nowrap">23/04/2024</div>
+                                                    </td>
+                                                    <td class="text-center"><span class="badge me-1 bg-danger">Tiêu cực</span></td>
+                                                    <td class="text-center"><button class="btn btn-primary" type="button">Chi tiết</button></td>
+                                                </tr>
+                                                <tr class="align-middle">
+                                                    <td>
+                                                        <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/facebook.png" alt="user@email.com"></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-nowrap">Xét xử vụ khủng bố tại Đắk Lắk: Tòa tuyên phạt 10 án chung thân</div>
+                                                        <div class="small text-body-secondary text-nowrap">23/04/2024</div>
+                                                    </td>
+                                                    <td class="text-center"><span class="badge me-1 bg-info">Trung lập</span></td>
+                                                    <td class="text-center"><button class="btn btn-primary" type="button">Chi tiết</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.chủ đề chính-->
+                                    <div class="row g-4" id="topwordFacebook">
+                                        <div class="col-6 col-sm-4 col-xl-2">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="text-body-secondary small text-uppercase fw-semibold">#Title</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.col-->
+                                        <div class="col-6 col-sm-4 col-xl-2">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="text-body-secondary small text-uppercase fw-semibold">#Title</div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.col-->
+                                        <div class="col-6 col-sm-4 col-xl-2">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="text-body-secondary small text-uppercase fw-semibold">#Title</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.col-->
+                                        <div class="col-6 col-sm-4 col-xl-2">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="text-body-secondary small text-uppercase fw-semibold">#Title</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.col-->
+                                        <div class="col-6 col-sm-4 col-xl-2">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="text-body-secondary small text-uppercase fw-semibold">#Title</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.col-->
+                                        <div class="col-6 col-sm-4 col-xl-2">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="text-body-secondary small text-uppercase fw-semibold">#Title</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.col-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.col-->
+                    </div>
+                    <!-- /.row-->
+                </div>
+            </div>
+            <footer class="footer px-4">
+                <div><a href="https://coreui.io">CoreUI </a><a href="https://coreui.io/product/free-bootstrap-admin-template/">Bootstrap Admin Template</a> &copy; 2024 creativeLabs.</div>
+                <div class="ms-auto">Powered by&nbsp;<a href="https://coreui.io/docs/">CoreUI UI Components</a></div>
+            </footer>
+        </div>
+        <!-- CoreUI and necessary plugins-->
+        <script src="node_modules/@coreui/coreui/dist/js/coreui.bundle.min.js"></script>
+        <script src="node_modules/simplebar/dist/simplebar.min.js"></script>
+        <script>
+            const header = document.querySelector('header.header');
+
+            document.addEventListener('scroll', () => {
+                if (header) {
+                    header.classList.toggle('shadow-sm', document.documentElement.scrollTop > 0);
+                }
+            });
+        </script>
+        <!-- Plugins and scripts required by this view-->
+        <script src="node_modules/chart.js/dist/chart.umd.js"></script>
+        <script src="node_modules/@coreui/chartjs/dist/js/coreui-chartjs.js"></script>
+        <script src="node_modules/@coreui/utils/dist/umd/index.js"></script>
+        <script src="js/main.js"></script>
+        <script>
+            function openDetailPage(event, param1, param2, param3, param4, param5, param6) {
+                event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ a
+
+                // Tạo query string từ các tham số
+                var queryString = "?param1=" + encodeURIComponent(param1) + "&param2=" + encodeURIComponent(param2) + "&param3=" + encodeURIComponent(param3) + "&param4=" + encodeURIComponent(param4) + "&param5=" + encodeURIComponent(param5) + "&param6=" + encodeURIComponent(param6);
+
+                // Tạo URL của trang detail.html với query string đã tạo
+                var url = "detailyoutube.html" + queryString;
+
+                // Mở một cửa sổ hoặc tab mới với URL đã tạo
+                window.open(url, '_blank');
+            }
+
+            // Code Get API Top Word==========================================================
+            function GetDataTopWordWeb() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataTopWordWeb`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("topwordWeb");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            html += `
+                            <div class="col-6 col-sm-4 col-xl-2">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <div class="text-body-secondary small text-uppercase fw-semibold">#${item}</div>
+                                    </div>
+                                </div>
+                            </div>                                                 
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataTopWordYoutube() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataTopWordYoutube`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("topwordYoutube");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            html += `
+                            <div class="col-6 col-sm-4 col-xl-2">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <div class="text-body-secondary small text-uppercase fw-semibold">#${item}</div>
+                                    </div>
+                                </div>
+                            </div>                                                    
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataTopWordFacebook() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataTopWordFacebook`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("topwordFacebook");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            html += `
+                            <div class="col-6 col-sm-4 col-xl-2">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <div class="text-body-secondary small text-uppercase fw-semibold">#${item}</div>
+                                    </div>
+                                </div>
+                            </div>                                                     
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            // Code Get API Việt Tân==========================================================
+            function GetDataWebViettan() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataWebViettan`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("tableWeb");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            // Xử lý tham số cảm xúc
+                            var colorClass = '';
+                            if (item.camxuc === 'Tích cực') {
+                                colorClass = 'bg-success';
+                            } else if (item.camxuc === 'Tiêu cực') {
+                                colorClass = 'bg-danger';
+                            } else if (item.camxuc === 'Trung lập') {
+                                colorClass = 'bg-info';
+                            } else {
+                                colorClass = 'bg-secondary';
+                            }
+                            html += `
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/viettan.png"
+                                            alt="user@email.com"></div>
+                                </td>
+                                <td>
+                                    <div class="text-nowrap">${item.tieude}</div>
+                                    <div class="small text-body-secondary text-nowrap">${item.thoigiandang}</div>
+                                </td>
+                                <td class="text-center"><span class="badge me-1 ${colorClass}">${item.camxuc}</span></td>
+                                <td class="text-center"><div class="text-body-secondary small"><a href="${item.duongdan}"><button class="btn btn-primary" type="button">Chi tiết</button></a></div></td>
+                            </tr>                            
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataYoutubeChannelViettan() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataYoutubeChannelViettan`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("infoChannelYoutube");
+                        var html = "";
+
+                        html += `
+                            <h5>${data.tenkenh}</h5>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">${data.sodangky}</div>
+                                <div class="text-uppercase text-body-secondary small">subscribe</div>
+                            </div>
+                            <div class="vr"></div>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">${data.sovideo}</div>
+                                <div class="text-uppercase text-body-secondary small">video</div>
+                            </div>                            
+                            `;
+
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataYoutubeChannelVideoViettan() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataYoutubeChannelVideoViettan`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("tableYoutube");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            // Xử lý tham số cảm xúc
+                            var colorClass = '';
+                            if (item.camxucvideo === 'Tích cực') {
+                                colorClass = 'bg-success';
+                            } else if (item.camxucvideo === 'Tiêu cực') {
+                                colorClass = 'bg-danger';
+                            } else if (item.camxucvideo === 'Trung lập') {
+                                colorClass = 'bg-info';
+                            } else {
+                                colorClass = 'bg-secondary';
+                            }
+                            html += `
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/youtube.png"
+                                            alt="user@email.com"></div>
+                                </td>
+                                <td>
+                                    <div class="text-nowrap">${item.tenvideo}</div>
+                                    <div class="small text-body-secondary text-nowrap">Lượt xem & Ngày đăng: ${item.thoigianluotxem} - Thời lượng video: ${item.thoigianvideo}</div>
+                                </td>
+                                <td class="text-center"><span class="badge me-1 ${colorClass}">${item.camxucvideo}</span></td>
+                                <td class="text-center"><div class="text-body-secondary small"><a href="#" id="link" onclick="openDetailPage(event, '${item.tenvideo}', '${item.anhdaidienvideo}', '${item.lienketvideo}','${item.thoigianvideo}','${item.thoigianluotxem}', '${item.noidungvideo}')"><button class="btn btn-primary" type="button">Chi tiết</button></a></div></td>
+                            </tr>                               
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataFacebookPageVietTan() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataFacebookPageViettan`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("infoPageFacebook");
+                        var html = "";
+
+                        html += `
+                            <h5>${data.tentrang}</h5>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">${data.sotheodoi}</div>
+                            </div>
+                            <div class="vr"></div>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">1.792</div>
+                                <div class="text-uppercase text-body-secondary small">POST</div>
+                            </div>                            
+                            `;
+
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataFacebookPagePersonalViettan() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataFacebookPagePersonalViettan`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("tableFacebook");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            // Xử lý tham số cảm xúc
+                            var colorClass = '';
+                            if (item.camxuc === 'Tích cực') {
+                                colorClass = 'bg-success';
+                            } else if (item.camxuc === 'Tiêu cực') {
+                                colorClass = 'bg-danger';
+                            } else if (item.camxuc === 'Trung lập') {
+                                colorClass = 'bg-info';
+                            } else {
+                                colorClass = 'bg-secondary';
+                            }
+                            html += `
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/facebook.png"
+                                            alt="user@email.com"></div>
+                                </td>
+                                <td>
+                                    <div class="text-nowrap">Thời gian đăng: ${item.thoigiandangbai} - ${item.soluongcamxuc} cảm xúc - ${item.binhluanchiase} bình luận & chia sẻ</div>
+                                    <div class="small text-body-secondary text-nowrap">${item.noidungbai}</div>
+                                </td>
+                                <td class="text-center"><span class="badge me-1 ${colorClass}">${item.camxuc}</span></td>
+                                <td class="text-center"><div class="text-body-secondary small"><a href=""><button class="btn btn-primary" type="button">Chi tiết</button></a></div></td>
+                            </tr>                              
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+
+            // Code Get API VOA Tiếng Việt==========================================================
+            function GetDataWebVoatiengviet() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataWebVoatiengviet`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("tableWeb");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            // Xử lý tham số cảm xúc
+                            var colorClass = '';
+                            if (item.camxuc === 'Tích cực') {
+                                colorClass = 'bg-success';
+                            } else if (item.camxuc === 'Tiêu cực') {
+                                colorClass = 'bg-danger';
+                            } else if (item.camxuc === 'Trung lập') {
+                                colorClass = 'bg-info';
+                            } else {
+                                colorClass = 'bg-secondary';
+                            }
+                            html += `
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/voatiengviet.png"
+                                            alt="user@email.com"></div>
+                                </td>
+                                <td>
+                                    <div class="text-nowrap">${item.tieude}</div>
+                                    <div class="small text-body-secondary text-nowrap">${item.thoigiandang}</div>
+                                </td>
+                                <td class="text-center"><span class="badge me-1 ${colorClass}">${item.camxuc}</span></td>
+                                <td class="text-center"><div class="text-body-secondary small"><a href="${item.duongdan}"><button class="btn btn-primary" type="button">Chi tiết</button></a></div></td>
+                            </tr>                            
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataYoutubeChannelVoatiengviet() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataYoutubeChannelVoatiengviet`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("infoChannelYoutube");
+                        var html = "";
+
+                        html += `
+                            <h5>${data.tenkenh}</h5>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">${data.sodangky}</div>
+                                <div class="text-uppercase text-body-secondary small">subscribe</div>
+                            </div>
+                            <div class="vr"></div>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">${data.sovideo}</div>
+                                <div class="text-uppercase text-body-secondary small">video</div>
+                            </div>                            
+                            `;
+
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataYoutubeChannelVideoVoatiengviet() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataYoutubeChannelVideoVoatiengviet`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("tableYoutube");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            // Xử lý tham số cảm xúc
+                            var colorClass = '';
+                            if (item.camxucvideo === 'Tích cực') {
+                                colorClass = 'bg-success';
+                            } else if (item.camxucvideo === 'Tiêu cực') {
+                                colorClass = 'bg-danger';
+                            } else if (item.camxucvideo === 'Trung lập') {
+                                colorClass = 'bg-info';
+                            } else {
+                                colorClass = 'bg-secondary';
+                            }
+                            html += `
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/youtube.png"
+                                            alt="user@email.com"></div>
+                                </td>
+                                <td>
+                                    <div class="text-nowrap">${item.tenvideo}</div>
+                                    <div class="small text-body-secondary text-nowrap">Lượt xem & Ngày đăng: ${item.thoigianluotxem} - Thời lượng video: ${item.thoigianvideo}</div>
+                                </td>
+                                <td class="text-center"><span class="badge me-1 ${colorClass}">${item.camxucvideo}</span></td>
+                                <td class="text-center"><div class="text-body-secondary small"><a href="#" id="link" onclick="openDetailPage(event, '${item.tenvideo}', '${item.anhdaidienvideo}', '${item.lienketvideo}','${item.thoigianvideo}','${item.thoigianluotxem}', '${item.noidungvideo}')"><button class="btn btn-primary" type="button">Chi tiết</button></a></div></td>
+                            </tr>                               
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataFacebookPageVoatiengviet() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataFacebookPageVoatiengviet`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("infoPageFacebook");
+                        var html = "";
+
+                        html += `
+                            <h5>${data.tentrang}</h5>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">${data.sotheodoi}</div>
+                            </div>
+                            <div class="vr"></div>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">1.792</div>
+                                <div class="text-uppercase text-body-secondary small">POST</div>
+                            </div>                            
+                            `;
+
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataFacebookPagePersonalVoatiengviet() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataFacebookPagePersonalVoatiengviet`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("tableFacebook");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            // Xử lý tham số cảm xúc
+                            var colorClass = '';
+                            if (item.camxuc === 'Tích cực') {
+                                colorClass = 'bg-success';
+                            } else if (item.camxuc === 'Tiêu cực') {
+                                colorClass = 'bg-danger';
+                            } else if (item.camxuc === 'Trung lập') {
+                                colorClass = 'bg-info';
+                            } else {
+                                colorClass = 'bg-secondary';
+                            }
+                            html += `
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/facebook.png"
+                                            alt="user@email.com"></div>
+                                </td>
+                                <td>
+                                    <div class="text-nowrap">Thời gian đăng: ${item.thoigiandangbai} - ${item.soluongcamxuc} cảm xúc - ${item.binhluanchiase} bình luận & chia sẻ</div>
+                                    <div class="small text-body-secondary text-nowrap">${item.noidungbai}</div>
+                                </td>
+                                <td class="text-center"><span class="badge me-1 ${colorClass}">${item.camxuc}</span></td>
+                                <td class="text-center"><div class="text-body-secondary small"><a href=""><button class="btn btn-primary" type="button">Chi tiết</button></a></div></td>
+                            </tr>                              
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            // Code Get API RFA Tiếng Việt==========================================================
+            function GetDataWebRFA() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataWebRFA`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("tableWeb");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            // Xử lý tham số cảm xúc
+                            var colorClass = '';
+                            if (item.camxuc === 'Tích cực') {
+                                colorClass = 'bg-success';
+                            } else if (item.camxuc === 'Tiêu cực') {
+                                colorClass = 'bg-danger';
+                            } else if (item.camxuc === 'Trung lập') {
+                                colorClass = 'bg-info';
+                            } else {
+                                colorClass = 'bg-secondary';
+                            }
+                            html += `
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/rfa.png"
+                                            alt="user@email.com"></div>
+                                </td>
+                                <td>
+                                    <div class="text-nowrap">${item.tieude}</div>
+                                    <div class="small text-body-secondary text-nowrap">${item.thoigiandang}</div>
+                                </td>
+                                <td class="text-center"><span class="badge me-1 ${colorClass}">${item.camxuc}</span></td>
+                                <td class="text-center"><div class="text-body-secondary small"><a href="${item.duongdan}"><button class="btn btn-primary" type="button">Chi tiết</button></a></div></td>
+                            </tr>                            
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataYoutubeChannelRFA() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataYoutubeChannelRFA`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("infoChannelYoutube");
+                        var html = "";
+
+                        html += `
+                            <h5>${data.tenkenh}</h5>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">${data.sodangky}</div>
+                                <div class="text-uppercase text-body-secondary small">subscribe</div>
+                            </div>
+                            <div class="vr"></div>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">${data.sovideo}</div>
+                                <div class="text-uppercase text-body-secondary small">video</div>
+                            </div>                            
+                            `;
+
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataYoutubeChannelVideoRFA() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataYoutubeChannelVideoRFA`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("tableYoutube");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            // Xử lý tham số cảm xúc
+                            var colorClass = '';
+                            if (item.camxucvideo === 'Tích cực') {
+                                colorClass = 'bg-success';
+                            } else if (item.camxucvideo === 'Tiêu cực') {
+                                colorClass = 'bg-danger';
+                            } else if (item.camxucvideo === 'Trung lập') {
+                                colorClass = 'bg-info';
+                            } else {
+                                colorClass = 'bg-secondary';
+                            }
+                            html += `
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/youtube.png"
+                                            alt="user@email.com"></div>
+                                </td>
+                                <td>
+                                    <div class="text-nowrap">${item.tenvideo}</div>
+                                    <div class="small text-body-secondary text-nowrap">Lượt xem & Ngày đăng: ${item.thoigianluotxem} - Thời lượng video: ${item.thoigianvideo}</div>
+                                </td>
+                                <td class="text-center"><span class="badge me-1 ${colorClass}">${item.camxucvideo}</span></td>
+                                <td class="text-center"><div class="text-body-secondary small"><a href="#" id="link" onclick="openDetailPage(event, '${item.tenvideo}', '${item.anhdaidienvideo}', '${item.lienketvideo}','${item.thoigianvideo}','${item.thoigianluotxem}', '${item.noidungvideo}')"><button class="btn btn-primary" type="button">Chi tiết</button></a></div></td>
+                            </tr>                               
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataFacebookPageRFA() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataFacebookPageRFA`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("infoPageFacebook");
+                        var html = "";
+
+                        html += `
+                            <h5>${data.tentrang}</h5>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">${data.sotheodoi}</div>
+                            </div>
+                            <div class="vr"></div>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">1.792</div>
+                                <div class="text-uppercase text-body-secondary small">POST</div>
+                            </div>                            
+                            `;
+
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataFacebookPagePersonalRFA() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataFacebookPagePersonalRFA`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("tableFacebook");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            // Xử lý tham số cảm xúc
+                            var colorClass = '';
+                            if (item.camxuc === 'Tích cực') {
+                                colorClass = 'bg-success';
+                            } else if (item.camxuc === 'Tiêu cực') {
+                                colorClass = 'bg-danger';
+                            } else if (item.camxuc === 'Trung lập') {
+                                colorClass = 'bg-info';
+                            } else {
+                                colorClass = 'bg-secondary';
+                            }
+                            html += `
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/facebook.png"
+                                            alt="user@email.com"></div>
+                                </td>
+                                <td>
+                                    <div class="text-nowrap">Thời gian đăng: ${item.thoigiandangbai} - ${item.soluongcamxuc} cảm xúc - ${item.binhluanchiase} bình luận & chia sẻ</div>
+                                    <div class="small text-body-secondary text-nowrap">${item.noidungbai}</div>
+                                </td>
+                                <td class="text-center"><span class="badge me-1 ${colorClass}">${item.camxuc}</span></td>
+                                <td class="text-center"><div class="text-body-secondary small"><a href=""><button class="btn btn-primary" type="button">Chi tiết</button></a></div></td>
+                            </tr>                              
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            // Code Get API BBC Tiếng Việt==========================================================
+            function GetDataWebBBC() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataWebBBC`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("tableWeb");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            // Xử lý tham số cảm xúc
+                            var colorClass = '';
+                            if (item.camxuc === 'Tích cực') {
+                                colorClass = 'bg-success';
+                            } else if (item.camxuc === 'Tiêu cực') {
+                                colorClass = 'bg-danger';
+                            } else if (item.camxuc === 'Trung lập') {
+                                colorClass = 'bg-info';
+                            } else {
+                                colorClass = 'bg-secondary';
+                            }
+                            html += `
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/bbc.png"
+                                            alt="user@email.com"></div>
+                                </td>
+                                <td>
+                                    <div class="text-nowrap">${item.tieude}</div>
+                                    <div class="small text-body-secondary text-nowrap">${item.thoigiandang}</div>
+                                </td>
+                                <td class="text-center"><span class="badge me-1 ${colorClass}">${item.camxuc}</span></td>
+                                <td class="text-center"><div class="text-body-secondary small"><a href="${item.duongdan}"><button class="btn btn-primary" type="button">Chi tiết</button></a></div></td>
+                            </tr>                            
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataYoutubeChannelBBC() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataYoutubeChannelBBC`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("infoChannelYoutube");
+                        var html = "";
+
+                        html += `
+                            <h5>${data.tenkenh}</h5>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">${data.sodangky}</div>
+                                <div class="text-uppercase text-body-secondary small">subscribe</div>
+                            </div>
+                            <div class="vr"></div>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">${data.sovideo}</div>
+                                <div class="text-uppercase text-body-secondary small">video</div>
+                            </div>                            
+                            `;
+
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataYoutubeChannelVideoBBC() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataYoutubeChannelVideoBBC`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("tableYoutube");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            // Xử lý tham số cảm xúc
+                            var colorClass = '';
+                            if (item.camxucvideo === 'Tích cực') {
+                                colorClass = 'bg-success';
+                            } else if (item.camxucvideo === 'Tiêu cực') {
+                                colorClass = 'bg-danger';
+                            } else if (item.camxucvideo === 'Trung lập') {
+                                colorClass = 'bg-info';
+                            } else {
+                                colorClass = 'bg-secondary';
+                            }
+                            html += `
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/youtube.png"
+                                            alt="user@email.com"></div>
+                                </td>
+                                <td>
+                                    <div class="text-nowrap">${item.tenvideo}</div>
+                                    <div class="small text-body-secondary text-nowrap">Lượt xem & Ngày đăng: ${item.thoigianluotxem} - Thời lượng video: ${item.thoigianvideo}</div>
+                                </td>
+                                <td class="text-center"><span class="badge me-1 ${colorClass}">${item.camxucvideo}</span></td>
+                                <td class="text-center"><div class="text-body-secondary small"><a href="#" id="link" onclick="openDetailPage(event, '${item.tenvideo}', '${item.anhdaidienvideo}', '${item.lienketvideo}','${item.thoigianvideo}','${item.thoigianluotxem}', '${item.noidungvideo}')"><button class="btn btn-primary" type="button">Chi tiết</button></a></div></td>
+                            </tr>                               
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataFacebookPageBBC() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataFacebookPageBBC`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("infoPageFacebook");
+                        var html = "";
+
+                        html += `
+                            <h5>${data.tentrang}</h5>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">${data.sotheodoi}</div>
+                            </div>
+                            <div class="vr"></div>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">1.792</div>
+                                <div class="text-uppercase text-body-secondary small">POST</div>
+                            </div>                            
+                            `;
+
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataFacebookPagePersonalBBC() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataFacebookPagePersonalBBC`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("tableFacebook");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            // Xử lý tham số cảm xúc
+                            var colorClass = '';
+                            if (item.camxuc === 'Tích cực') {
+                                colorClass = 'bg-success';
+                            } else if (item.camxuc === 'Tiêu cực') {
+                                colorClass = 'bg-danger';
+                            } else if (item.camxuc === 'Trung lập') {
+                                colorClass = 'bg-info';
+                            } else {
+                                colorClass = 'bg-secondary';
+                            }
+                            html += `
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/facebook.png"
+                                            alt="user@email.com"></div>
+                                </td>
+                                <td>
+                                    <div class="text-nowrap">Thời gian đăng: ${item.thoigiandangbai} - ${item.soluongcamxuc} cảm xúc - ${item.binhluanchiase} bình luận & chia sẻ</div>
+                                    <div class="small text-body-secondary text-nowrap">${item.noidungbai}</div>
+                                </td>
+                                <td class="text-center"><span class="badge me-1 ${colorClass}">${item.camxuc}</span></td>
+                                <td class="text-center"><div class="text-body-secondary small"><a href=""><button class="btn btn-primary" type="button">Chi tiết</button></a></div></td>
+                            </tr>                              
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            // Code Get API Vịt Vui Vẻ==========================================================
+            function GetDataWebVitvuive() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataWebVitvuive`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("tableWeb");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            // Xử lý tham số cảm xúc
+                            var colorClass = '';
+                            if (item.camxuc === 'Tích cực') {
+                                colorClass = 'bg-success';
+                            } else if (item.camxuc === 'Tiêu cực') {
+                                colorClass = 'bg-danger';
+                            } else if (item.camxuc === 'Trung lập') {
+                                colorClass = 'bg-info';
+                            } else {
+                                colorClass = 'bg-secondary';
+                            }
+                            html += `
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/dantri.png"
+                                            alt="user@email.com"></div>
+                                </td>
+                                <td>
+                                    <div class="text-nowrap">${item.tieude}</div>
+                                    <div class="small text-body-secondary text-nowrap">${item.thoigiandang}</div>
+                                </td>
+                                <td class="text-center"><span class="badge me-1 ${colorClass}">${item.camxuc}</span></td>
+                                <td class="text-center"><div class="text-body-secondary small"><a href="${item.duongdan}"><button class="btn btn-primary" type="button">Chi tiết</button></a></div></td>
+                            </tr>                            
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataYoutubeChannelVitvuive(linkYoutube) {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataYoutubeChannelOtherSources?linkYoutube=${linkYoutube}`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("infoChannelYoutube");
+                        var html = "";
+
+                        html += `
+                            <h5>${data.tenkenh}</h5>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">${data.sodangky}</div>
+                                <div class="text-uppercase text-body-secondary small">subscribe</div>
+                            </div>
+                            <div class="vr"></div>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">${data.sovideo}</div>
+                                <div class="text-uppercase text-body-secondary small">video</div>
+                            </div>                            
+                            `;
+
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataYoutubeChannelVideoVitvuive(linkYoutube) {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataYoutubeChannelVideoOtherSources?linkYoutube=${linkYoutube}`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("tableYoutube");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            // Xử lý tham số cảm xúc
+                            var colorClass = '';
+                            if (item.camxucvideo === 'Tích cực') {
+                                colorClass = 'bg-success';
+                            } else if (item.camxucvideo === 'Tiêu cực') {
+                                colorClass = 'bg-danger';
+                            } else if (item.camxucvideo === 'Trung lập') {
+                                colorClass = 'bg-info';
+                            } else {
+                                colorClass = 'bg-secondary';
+                            }
+                            html += `
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/youtube.png"
+                                            alt="user@email.com"></div>
+                                </td>
+                                <td>
+                                    <div class="text-nowrap">${item.tenvideo}</div>
+                                    <div class="small text-body-secondary text-nowrap">Lượt xem & Ngày đăng: ${item.thoigianluotxem} - Thời lượng video: ${item.thoigianvideo}</div>
+                                </td>
+                                <td class="text-center"><span class="badge me-1 ${colorClass}">${item.camxucvideo}</span></td>
+                                <td class="text-center"><div class="text-body-secondary small"><a href="#" id="link" onclick="openDetailPage(event, '${item.tenvideo}', '${item.anhdaidienvideo}', '${item.lienketvideo}','${item.thoigianvideo}','${item.thoigianluotxem}', '${item.noidungvideo}')"><button class="btn btn-primary" type="button">Chi tiết</button></a></div></td>
+                            </tr>                               
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataFacebookPageVitvuive(linkFacebook) {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataFacebookPageOtherSources?linkFacebook=${linkFacebook}`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("infoPageFacebook");
+                        var html = "";
+
+                        html += `
+                            <h5>${data.tentrang}</h5>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">${data.sotheodoi}</div>
+                            </div>
+                            <div class="vr"></div>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">1.792</div>
+                                <div class="text-uppercase text-body-secondary small">POST</div>
+                            </div>                            
+                            `;
+
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataFacebookPagePersonalVitvuive(linkFacebook) {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataFacebookPagePersonalOtherSources?linkFacebook=${linkFacebook}`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("tableFacebook");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            // Xử lý tham số cảm xúc
+                            var colorClass = '';
+                            if (item.camxuc === 'Tích cực') {
+                                colorClass = 'bg-success';
+                            } else if (item.camxuc === 'Tiêu cực') {
+                                colorClass = 'bg-danger';
+                            } else if (item.camxuc === 'Trung lập') {
+                                colorClass = 'bg-info';
+                            } else {
+                                colorClass = 'bg-secondary';
+                            }
+                            html += `
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/facebook.png"
+                                            alt="user@email.com"></div>
+                                </td>
+                                <td>
+                                    <div class="text-nowrap">Thời gian đăng: ${item.thoigiandangbai} - ${item.soluongcamxuc} cảm xúc - ${item.binhluanchiase} bình luận & chia sẻ</div>
+                                    <div class="small text-body-secondary text-nowrap">${item.noidungbai}</div>
+                                </td>
+                                <td class="text-center"><span class="badge me-1 ${colorClass}">${item.camxuc}</span></td>
+                                <td class="text-center"><div class="text-body-secondary small"><a href=""><button class="btn btn-primary" type="button">Chi tiết</button></a></div></td>
+                            </tr>                              
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            // Code Get Dân Trí==========================================================
+            function GetDataWebDantri() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataWebDantri`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("tableWeb");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            // Xử lý tham số cảm xúc
+                            var colorClass = '';
+                            if (item.camxuc === 'Tích cực') {
+                                colorClass = 'bg-success';
+                            } else if (item.camxuc === 'Tiêu cực') {
+                                colorClass = 'bg-danger';
+                            } else if (item.camxuc === 'Trung lập') {
+                                colorClass = 'bg-info';
+                            } else {
+                                colorClass = 'bg-secondary';
+                            }
+                            html += `
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/dantri.png"
+                                            alt="user@email.com"></div>
+                                </td>
+                                <td>
+                                    <div class="text-nowrap">${item.tieude}</div>
+                                    <div class="small text-body-secondary text-nowrap">${item.thoigiandang}</div>
+                                </td>
+                                <td class="text-center"><span class="badge me-1 ${colorClass}">${item.camxuc}</span></td>
+                                <td class="text-center"><div class="text-body-secondary small"><a href="${item.duongdan}"><button class="btn btn-primary" type="button">Chi tiết</button></a></div></td>
+                            </tr>                            
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataYoutubeChannelDantri() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataYoutubeChannelDantri`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("infoChannelYoutube");
+                        var html = "";
+
+                        html += `
+                            <h5>${data.tenkenh}</h5>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">${data.sodangky}</div>
+                                <div class="text-uppercase text-body-secondary small">subscribe</div>
+                            </div>
+                            <div class="vr"></div>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">${data.sovideo}</div>
+                                <div class="text-uppercase text-body-secondary small">video</div>
+                            </div>                            
+                            `;
+
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataYoutubeChannelVideoDantri() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataYoutubeChannelVideoDantri`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("tableYoutube");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            // Xử lý tham số cảm xúc
+                            var colorClass = '';
+                            if (item.camxucvideo === 'Tích cực') {
+                                colorClass = 'bg-success';
+                            } else if (item.camxucvideo === 'Tiêu cực') {
+                                colorClass = 'bg-danger';
+                            } else if (item.camxucvideo === 'Trung lập') {
+                                colorClass = 'bg-info';
+                            } else {
+                                colorClass = 'bg-secondary';
+                            }
+                            html += `
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/youtube.png"
+                                            alt="user@email.com"></div>
+                                </td>
+                                <td>
+                                    <div class="text-nowrap">${item.tenvideo}</div>
+                                    <div class="small text-body-secondary text-nowrap">Lượt xem & Ngày đăng: ${item.thoigianluotxem} - Thời lượng video: ${item.thoigianvideo}</div>
+                                </td>
+                                <td class="text-center"><span class="badge me-1 ${colorClass}">${item.camxucvideo}</span></td>
+                                <td class="text-center"><div class="text-body-secondary small"><a href="#" id="link" onclick="openDetailPage(event, '${item.tenvideo}', '${item.anhdaidienvideo}', '${item.lienketvideo}','${item.thoigianvideo}','${item.thoigianluotxem}', '${item.noidungvideo}')"><button class="btn btn-primary" type="button">Chi tiết</button></a></div></td>
+                            </tr>                               
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataFacebookPageDantri() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataFacebookPageDantri`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("infoPageFacebook");
+                        var html = "";
+
+                        html += `
+                            <h5>${data.tentrang}</h5>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">${data.sotheodoi}</div>
+                            </div>
+                            <div class="vr"></div>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">1.792</div>
+                                <div class="text-uppercase text-body-secondary small">POST</div>
+                            </div>                            
+                            `;
+
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataFacebookPagePersonalDantri() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataFacebookPagePersonalDantri`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("tableFacebook");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            // Xử lý tham số cảm xúc
+                            var colorClass = '';
+                            if (item.camxuc === 'Tích cực') {
+                                colorClass = 'bg-success';
+                            } else if (item.camxuc === 'Tiêu cực') {
+                                colorClass = 'bg-danger';
+                            } else if (item.camxuc === 'Trung lập') {
+                                colorClass = 'bg-info';
+                            } else {
+                                colorClass = 'bg-secondary';
+                            }
+                            html += `
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/facebook.png"
+                                            alt="user@email.com"></div>
+                                </td>
+                                <td>
+                                    <div class="text-nowrap">Thời gian đăng: ${item.thoigiandangbai} - ${item.soluongcamxuc} cảm xúc - ${item.binhluanchiase} bình luận & chia sẻ</div>
+                                    <div class="small text-body-secondary text-nowrap">${item.noidungbai}</div>
+                                </td>
+                                <td class="text-center"><span class="badge me-1 ${colorClass}">${item.camxuc}</span></td>
+                                <td class="text-center"><div class="text-body-secondary small"><a href=""><button class="btn btn-primary" type="button">Chi tiết</button></a></div></td>
+                            </tr>                              
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            // Code Get API VnExpress==========================================================
+            function GetDataWebVnexpress() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataWebVnexpress`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("tableWeb");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            // Xử lý tham số cảm xúc
+                            var colorClass = '';
+                            if (item.camxuc === 'Tích cực') {
+                                colorClass = 'bg-success';
+                            } else if (item.camxuc === 'Tiêu cực') {
+                                colorClass = 'bg-danger';
+                            } else if (item.camxuc === 'Trung lập') {
+                                colorClass = 'bg-info';
+                            } else {
+                                colorClass = 'bg-secondary';
+                            }
+                            html += `
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/vnexpress.png"
+                                            alt="user@email.com"></div>
+                                </td>
+                                <td>
+                                    <div class="text-nowrap">${item.tieude}</div>
+                                    <div class="small text-body-secondary text-nowrap">${item.thoigiandang}</div>
+                                </td>
+                                <td class="text-center"><span class="badge me-1 ${colorClass}">${item.camxuc}</span></td>
+                                <td class="text-center"><div class="text-body-secondary small"><a href="${item.duongdan}"><button class="btn btn-primary" type="button">Chi tiết</button></a></div></td>
+                            </tr>                            
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataYoutubeChannelVnexpress() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataYoutubeChannelVnexpress`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("infoChannelYoutube");
+                        var html = "";
+
+                        html += `
+                            <h5>${data.tenkenh}</h5>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">${data.sodangky}</div>
+                                <div class="text-uppercase text-body-secondary small">subscribe</div>
+                            </div>
+                            <div class="vr"></div>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">${data.sovideo}</div>
+                                <div class="text-uppercase text-body-secondary small">video</div>
+                            </div>                            
+                            `;
+
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataYoutubeChannelVideoVnexpress() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataYoutubeChannelVideoVnexpress`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("tableYoutube");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            // Xử lý tham số cảm xúc
+                            var colorClass = '';
+                            if (item.camxucvideo === 'Tích cực') {
+                                colorClass = 'bg-success';
+                            } else if (item.camxucvideo === 'Tiêu cực') {
+                                colorClass = 'bg-danger';
+                            } else if (item.camxucvideo === 'Trung lập') {
+                                colorClass = 'bg-info';
+                            } else {
+                                colorClass = 'bg-secondary';
+                            }
+                            html += `
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/youtube.png"
+                                            alt="user@email.com"></div>
+                                </td>
+                                <td>
+                                    <div class="text-nowrap">${item.tenvideo}</div>
+                                    <div class="small text-body-secondary text-nowrap">Lượt xem & Ngày đăng: ${item.thoigianluotxem} - Thời lượng video: ${item.thoigianvideo}</div>
+                                </td>
+                                <td class="text-center"><span class="badge me-1 ${colorClass}">${item.camxucvideo}</span></td>
+                                <td class="text-center"><div class="text-body-secondary small"><a href="#" id="link" onclick="openDetailPage(event, '${item.tenvideo}', '${item.anhdaidienvideo}', '${item.lienketvideo}','${item.thoigianvideo}','${item.thoigianluotxem}', '${item.noidungvideo}')"><button class="btn btn-primary" type="button">Chi tiết</button></a></div></td>
+                            </tr>                               
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataFacebookPageVnexpress() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataFacebookPageVnexpress`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("infoPageFacebook");
+                        var html = "";
+
+                        html += `
+                            <h5>${data.tentrang}</h5>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">${data.sotheodoi}</div>
+                            </div>
+                            <div class="vr"></div>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">1.792</div>
+                                <div class="text-uppercase text-body-secondary small">POST</div>
+                            </div>                            
+                            `;
+
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataFacebookPagePersonalVnexpress() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataFacebookPagePersonalVnexpress`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("tableFacebook");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            // Xử lý tham số cảm xúc
+                            var colorClass = '';
+                            if (item.camxuc === 'Tích cực') {
+                                colorClass = 'bg-success';
+                            } else if (item.camxuc === 'Tiêu cực') {
+                                colorClass = 'bg-danger';
+                            } else if (item.camxuc === 'Trung lập') {
+                                colorClass = 'bg-info';
+                            } else {
+                                colorClass = 'bg-secondary';
+                            }
+                            html += `
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/facebook.png"
+                                            alt="user@email.com"></div>
+                                </td>
+                                <td>
+                                    <div class="text-nowrap">Thời gian đăng: ${item.thoigiandangbai} - ${item.soluongcamxuc} cảm xúc - ${item.binhluanchiase} bình luận & chia sẻ</div>
+                                    <div class="small text-body-secondary text-nowrap">${item.noidungbai}</div>
+                                </td>
+                                <td class="text-center"><span class="badge me-1 ${colorClass}">${item.camxuc}</span></td>
+                                <td class="text-center"><div class="text-body-secondary small"><a href=""><button class="btn btn-primary" type="button">Chi tiết</button></a></div></td>
+                            </tr>                              
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            // Code Get API Ngẫm Sử Thi==========================================================
+            function GetDataWebNgamsuthi() {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataWebVitvuive`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("tableWeb");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            // Xử lý tham số cảm xúc
+                            var colorClass = '';
+                            if (item.camxuc === 'Tích cực') {
+                                colorClass = 'bg-success';
+                            } else if (item.camxuc === 'Tiêu cực') {
+                                colorClass = 'bg-danger';
+                            } else if (item.camxuc === 'Trung lập') {
+                                colorClass = 'bg-info';
+                            } else {
+                                colorClass = 'bg-secondary';
+                            }
+                            html += `
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/dantri.png"
+                                            alt="user@email.com"></div>
+                                </td>
+                                <td>
+                                    <div class="text-nowrap">${item.tieude}</div>
+                                    <div class="small text-body-secondary text-nowrap">${item.thoigiandang}</div>
+                                </td>
+                                <td class="text-center"><span class="badge me-1 ${colorClass}">${item.camxuc}</span></td>
+                                <td class="text-center"><div class="text-body-secondary small"><a href="${item.duongdan}"><button class="btn btn-primary" type="button">Chi tiết</button></a></div></td>
+                            </tr>                            
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataYoutubeChannelNgamsuthi(linkYoutube) {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataYoutubeChannelOtherSources?linkYoutube=${linkYoutube}`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("infoChannelYoutube");
+                        var html = "";
+
+                        html += `
+                            <h5>${data.tenkenh}</h5>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">${data.sodangky}</div>
+                                <div class="text-uppercase text-body-secondary small">subscribe</div>
+                            </div>
+                            <div class="vr"></div>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">${data.sovideo}</div>
+                                <div class="text-uppercase text-body-secondary small">video</div>
+                            </div>                            
+                            `;
+
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataYoutubeChannelVideoNgamsuthi(linkYoutube) {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataYoutubeChannelVideoOtherSources?linkYoutube=${linkYoutube}`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("tableYoutube");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            // Xử lý tham số cảm xúc
+                            var colorClass = '';
+                            if (item.camxucvideo === 'Tích cực') {
+                                colorClass = 'bg-success';
+                            } else if (item.camxucvideo === 'Tiêu cực') {
+                                colorClass = 'bg-danger';
+                            } else if (item.camxucvideo === 'Trung lập') {
+                                colorClass = 'bg-info';
+                            } else {
+                                colorClass = 'bg-secondary';
+                            }
+                            html += `
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/youtube.png"
+                                            alt="user@email.com"></div>
+                                </td>
+                                <td>
+                                    <div class="text-nowrap">${item.tenvideo}</div>
+                                    <div class="small text-body-secondary text-nowrap">Lượt xem & Ngày đăng: ${item.thoigianluotxem} - Thời lượng video: ${item.thoigianvideo}</div>
+                                </td>
+                                <td class="text-center"><span class="badge me-1 ${colorClass}">${item.camxucvideo}</span></td>
+                                <td class="text-center"><div class="text-body-secondary small"><a href="#" id="link" onclick="openDetailPage(event, '${item.tenvideo}', '${item.anhdaidienvideo}', '${item.lienketvideo}','${item.thoigianvideo}','${item.thoigianluotxem}', '${item.noidungvideo}')"><button class="btn btn-primary" type="button">Chi tiết</button></a></div></td>
+                            </tr>                               
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataFacebookPageNgamsuthi(linkFacebook) {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataFacebookPageOtherSources?linkFacebook=${linkFacebook}`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("infoPageFacebook");
+                        var html = "";
+
+                        html += `
+                            <h5>${data.tentrang}</h5>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">${data.sotheodoi}</div>
+                            </div>
+                            <div class="vr"></div>
+                            <div class="col">
+                                <div class="fs-5 fw-semibold">1.792</div>
+                                <div class="text-uppercase text-body-secondary small">POST</div>
+                            </div>                            
+                            `;
+
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+            function GetDataFacebookPagePersonalNgamsuthi(linkFacebook) {
+                // URL of your API endpoint
+                const url = `http://localhost:5000/api/GetDataFacebookPagePersonalOtherSources?linkFacebook=${linkFacebook}`;
+
+                // Fetch data from the API
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Process the data returned by the API
+                        console.log(data);
+                        var tableBody = document.getElementById("tableFacebook");
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            // Xử lý tham số cảm xúc
+                            var colorClass = '';
+                            if (item.camxuc === 'Tích cực') {
+                                colorClass = 'bg-success';
+                            } else if (item.camxuc === 'Tiêu cực') {
+                                colorClass = 'bg-danger';
+                            } else if (item.camxuc === 'Trung lập') {
+                                colorClass = 'bg-info';
+                            } else {
+                                colorClass = 'bg-secondary';
+                            }
+                            html += `
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="avatar avatar-md" style="width: 50px; height: 35px;"><img class="avatar-img" src="../assets/image/facebook.png"
+                                            alt="user@email.com"></div>
+                                </td>
+                                <td>
+                                    <div class="text-nowrap">Thời gian đăng: ${item.thoigiandangbai} - ${item.soluongcamxuc} cảm xúc - ${item.binhluanchiase} bình luận & chia sẻ</div>
+                                    <div class="small text-body-secondary text-nowrap">${item.noidungbai}</div>
+                                </td>
+                                <td class="text-center"><span class="badge me-1 ${colorClass}">${item.camxuc}</span></td>
+                                <td class="text-center"><div class="text-body-secondary small"><a href=""><button class="btn btn-primary" type="button">Chi tiết</button></a></div></td>
+                            </tr>                              
+                            `;
+                        }
+                        tableBody.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation: ', error);
+                    });
+            }
+
+
+
+            // Code xử lý khi lựa chọn option
+            function handleOptionChange() {
+                // Lấy giá trị của option được chọn
+                var selectedValue = document.getElementById("inputGroupSelect03").value;
+
+                if (selectedValue === "1") {
+                    // GetDataWebViettan();
+                    GetDataYoutubeChannelViettan();
+                    GetDataYoutubeChannelVideoViettan();
+                    GetDataFacebookPageVietTan();
+                    GetDataFacebookPagePersonalViettan()
+
+                    //Chờ 30 giây trước khi thực thi các hàm còn lại
+                    setTimeout(function() {
+                        GetDataTopWordWeb();
+                        GetDataTopWordYoutube();
+                        GetDataTopWordFacebook();
+                    }, 90000);
+                } else if (selectedValue === "2") {
+                    // VOA Tiếng Việt
+                    GetDataWebVoatiengviet();
+                    GetDataYoutubeChannelVoatiengviet();
+                    GetDataYoutubeChannelVideoVoatiengviet();
+                    GetDataFacebookPageVoatiengviet();
+                    GetDataFacebookPagePersonalVoatiengviet();
+
+                    setTimeout(function() {
+                        GetDataTopWordWeb();
+                        GetDataTopWordYoutube();
+                        GetDataTopWordFacebook();
+                    }, 90000);
+                } else if (selectedValue === "3") {
+                    // RFA Tiếng Việt
+                    GetDataWebRFA();
+                    GetDataYoutubeChannelRFA();
+                    GetDataYoutubeChannelVideoRFA();
+                    GetDataFacebookPageRFA();
+                    GetDataFacebookPagePersonalRFA();
+
+                    setTimeout(function() {
+                        GetDataTopWordWeb();
+                        GetDataTopWordYoutube();
+                        GetDataTopWordFacebook();
+                    }, 90000);
+                } else if (selectedValue === "4") {
+                    // BBC Tiếng Việt
+                    GetDataWebBBC();
+                    // GetDataYoutubeChannelBBC();
+                    // GetDataYoutubeChannelVideoBBC();
+                    // GetDataFacebookPageBBC();
+                    // GetDataFacebookPagePersonalBBC();
+
+                    setTimeout(function() {
+                        GetDataTopWordWeb();
+                        GetDataTopWordYoutube();
+                        GetDataTopWordFacebook();
+                    }, 90000);
+                } else if (selectedValue === "5") {
+                    // Vịt Vui Vẻ	
+                    // GetDataWebVitvuive();
+                    GetDataYoutubeChannelVitvuive("https://www.youtube.com/@vitvuive/");
+                    GetDataYoutubeChannelVideoVitvuive("https://www.youtube.com/@vitvuive/");
+                    // GetDataFacebookPageVitvuive();
+                    // GetDataFacebookPagePersonalVitvuive();
+
+                    setTimeout(function() {
+                        // GetDataTopWordWeb();
+                        GetDataTopWordYoutube();
+                        // GetDataTopWordFacebook();
+                    }, 90000);
+                } else if (selectedValue === "6") {
+                    // Dân Trí
+                    GetDataWebDantri();
+                    // GetDataYoutubeChannelDantri();
+                    // GetDataYoutubeChannelVideoDantri();
+                    // GetDataFacebookPageDantri();
+                    // GetDataFacebookPagePersonalDantri();
+
+                    setTimeout(function() {
+                        GetDataTopWordWeb();
+                        // GetDataTopWordYoutube();
+                        // GetDataTopWordFacebook();
+                    }, 90000);
+                } else if (selectedValue === "7") {
+                    // VnExpress
+                    GetDataWebVnexpress();
+                    // GetDataYoutubeChannelVnexpress();
+                    // GetDataYoutubeChannelVideoVnexpress();
+                    // GetDataFacebookPageVnexpress();
+                    // GetDataFacebookPagePersonalVnexpress();
+
+                    setTimeout(function() {
+                        GetDataTopWordWeb();
+                        // GetDataTopWordYoutube();
+                        // GetDataTopWordFacebook();
+                    }, 90000);
+                } else if (selectedValue === "8") {
+                    // Ngẫm Sử Thi
+                    // GetDataWebNgamsuthi();
+                    GetDataYoutubeChannelNgamsuthi("https://www.youtube.com/@ngamsuthiNKD/");
+                    GetDataYoutubeChannelVideoNgamsuthi("https://www.youtube.com/@ngamsuthiNKD/");
+                    // GetDataFacebookPageNgamsuthi();
+                    // GetDataFacebookPagePersonalNgamsuthi();
+
+                    setTimeout(function() {
+                        // GetDataTopWordWeb();
+                        GetDataTopWordYoutube();
+                        // GetDataTopWordFacebook();
+                    }, 90000);
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                // GetDataTrendInGoogle();
+            });
+        </script>
+</body>
+
+</html>
